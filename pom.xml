@@ -14,13 +14,14 @@
 	</prerequisites>
 
 	<properties>
-		<vaadin.version>7.7.7</vaadin.version>
-		<vaadin.plugin.version>7.7.7</vaadin.plugin.version>
+		<vaadin.version>8.3.1</vaadin.version>
+		<vaadin.plugin.version>8.3.1</vaadin.plugin.version>
 		<jetty.plugin.version>9.3.9.v20160517</jetty.plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<!-- If there are no local customisations, this can also be "fetch" or "cdn" -->
+		<!-- If there are no local customisations, this can also be "fetch" or 
+			"cdn" -->
 		<vaadin.widgetset.mode>local</vaadin.widgetset.mode>
 		<easy.app.version>1.0-beta</easy.app.version>
 	</properties>
@@ -45,10 +46,10 @@
 	</dependencyManagement>
 
 	<dependencies>
-	   <dependency>
+		<dependency>
 			<groupId>org.vaadin</groupId>
 			<artifactId>easyApp</artifactId>
-            <version>1.0-SNAPSHOT</version>
+			<version>1.0-beta</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -76,6 +77,15 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
@@ -119,14 +129,9 @@
 					</filesets>
 				</configuration>
 			</plugin>
-            <plugin>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>${jetty.plugin.version}</version>
-				<configuration>
-					<scanIntervalSeconds>2</scanIntervalSeconds>
-				</configuration>
-			</plugin>
+			<!-- <plugin> <groupId>org.eclipse.jetty</groupId> <artifactId>jetty-maven-plugin</artifactId> 
+				<version>${jetty.plugin.version}</version> <configuration> <scanIntervalSeconds>2</scanIntervalSeconds> 
+				</configuration> </plugin> -->
 		</plugins>
 	</build>
 

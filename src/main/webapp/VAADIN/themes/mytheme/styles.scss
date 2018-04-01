@@ -7,50 +7,89 @@
 .mytheme {
   @include addons;
   @include mytheme;
-	
+
 	.v-margin-left   {padding-left:   0px;}
     .v-margin-right  {padding-right:  0px;}
     .v-margin-top    {padding-top:    0px;}
-    .v-margin-bottom {padding-bottom: 0px;}
-	
-	.backColorGrey
-	{
-	   background-color:#ACCDEE;
-	}
-	
-	.topBannerBackGround
-	{
-	   background-color:#EEEEEE;
-	}
-	
-	.mainBackGround
-	{
-	   background-color:#ECECEA;
-	}
-	
-	.menuBackGround
-	{
-	   background-color:#558C89;
-	}	
-
-	.userLogged {
-	    font-size: 25px;
-	    font-weight:bold;
-	    line-height:normal;
-	}	
-
+    .v-margin-bottom {padding-bottom: 0px;}	
     
-    .error {
-	    font-size: 25px;
-	    font-weight:bold;
-	    line-height:normal;
-	    color: red;
-	}	
+    
+	/* White background for the entire UI */
+  .v-ui {
+    background: white;
+  }
+  
+  /* All labels have white text on black background */
+  .v-label {
+    background: black;
+    color: white;
+    font-size: 24pt;
+    line-height: 24pt;
+    padding: 5px;
+  }
 
-	.breadcrumbStyle {
-		font-weight:bold;
-		font-weight:italic;
+
+  
+    .v-button-Selected {
+    	background-color: #000066;
+  		margin: 0px;
+  		padding: 0;
+		border: none;
+	    border-radius: 0px;
+	    color: white;
+	    border:none;
+	    border-radius: 0px;
+	    background-image: none;  
+	    display:block; 
+	    outline: none;
+	    box-shadow: none;
+    }
+    
+     .v-button-Nav {
+     	background-color: #808080;
+  		margin: 0px;
+  		padding: 0;
+		border: none;
+	    border-radius: 0px;
+	    color: white;
+	    border:none;
+	    border-radius: 0px;
+	    background-image: none;  
+	    display:block; 
+	    outline: none;
+	    box-shadow: none;
+    }
+    
+   .v-button-Nav:hover {
+	    background-color: #505050;
+	    color: white;
+    }
+    
+	.v-accordion-item-content {
+		background-color: #808080;
+		display: block;
+		outline: none;
 	}
 	
+	.v-accordion-item {
+		background-color: #B82601;
+		display: block;
+		outline: none;
+		box-shadow: none;
+		margin: 0px;
+  		padding: 0;
+		border: none;
+		@include box-shadow(none);
+	}
 	
+	.v-accordion-item-caption {
+		box-shadow: none;
+		@include box-shadow(none);
+		.v-caption {
+			box-shadow: none;
+			border: none;
+		}
+	}
+	
+  
 }

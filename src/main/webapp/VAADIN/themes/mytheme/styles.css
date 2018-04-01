@@ -15069,36 +15069,78 @@ div.v-layout.v-horizontal.v-widget {
 	padding-bottom: 0px;
 }
 
-.mytheme .backColorGrey {
-	background-color: #ACCDEE;
+.mytheme .v-ui {
+	background: white;
 }
 
-.mytheme .topBannerBackGround {
-	background-color: #EEEEEE;
+.mytheme .v-label {
+	background: black;
+	color: white;
+	font-size: 24pt;
+	line-height: 24pt;
+	padding: 5px;
 }
 
-.mytheme .mainBackGround {
-	background-color: #ECECEA;
+.mytheme .v-button-Selected {
+	background-color: #000066;
+	margin: 0px;
+	padding: 0;
+	border: none;
+	border-radius: 0px;
+	color: white;
+	border: none;
+	border-radius: 0px;
+	background-image: none;
+	display: block;
+	outline: none;
+	box-shadow: none;
 }
 
-.mytheme .menuBackGround {
-	background-color: #558C89;
+.mytheme .v-button-Nav {
+	background-color: #808080;
+	margin: 0px;
+	padding: 0;
+	border: none;
+	border-radius: 0px;
+	color: white;
+	border: none;
+	border-radius: 0px;
+	background-image: none;
+	display: block;
+	outline: none;
+	box-shadow: none;
 }
 
-.mytheme .userLogged {
-	font-size: 25px;
-	font-weight: bold;
-	line-height: normal;
+.mytheme .v-button-Nav:hover {
+	background-color: #505050;
+	color: white;
 }
 
-.mytheme .error {
-	font-size: 25px;
-	font-weight: bold;
-	line-height: normal;
-	color: red;
+.mytheme .v-accordion-item-content {
+	background-color: #808080;
+	display: block;
+	outline: none;
 }
 
-.mytheme .breadcrumbStyle {
-	font-weight: bold;
-	font-weight: italic;
+.mytheme .v-accordion-item {
+	background-color: #B82601;
+	display: block;
+	outline: none;
+	box-shadow: none;
+	margin: 0px;
+	padding: 0;
+	border: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.mytheme .v-accordion-item-caption {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.mytheme .v-accordion-item-caption .v-caption {
+	box-shadow: none;
+	border: none;
 }

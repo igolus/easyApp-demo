@@ -38,8 +38,10 @@ public class AddonDemoApplication extends UI {
 		
 		EasyAppBuilder easyAppBuilder = new EasyAppBuilder(Collections.singletonList("org.vaadin.easyApp.demo.view"));
 		easyAppBuilder.withNavigationIcon(image);
-		easyAppBuilder.withNavigationStlyle("Nav", "Selected");
+		//easyAppBuilder.withNavigationStlyle("Nav", "Selected");
 		easyAppBuilder.withTopBarIcon(image);
+		easyAppBuilder.withRessourceBundle(null);
+		easyAppBuilder.withNavigationStyle("Nav", "Selected");
 		
 		
 		ActionContainerBuilder actionContainerBuilder = new ActionContainerBuilder(null)

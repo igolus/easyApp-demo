@@ -15081,14 +15081,18 @@ div.v-layout.v-horizontal.v-widget {
 	padding: 5px;
 }
 
-.mytheme .v-button-Selected {
-	background-color: #000066;
+.mytheme .v-button-TopBar {
+	height: 100%;
+}
+
+.mytheme .v-button-Nav {
+	background-color: #FFFFFF;
 	margin: 0px;
-	padding: 0;
+	text-align: left;
+	padding-left: 5px;
 	border: none;
 	border-radius: 0px;
-	color: white;
-	border: none;
+	color: #000000;
 	border-radius: 0px;
 	background-image: none;
 	display: block;
@@ -15096,14 +15100,15 @@ div.v-layout.v-horizontal.v-widget {
 	box-shadow: none;
 }
 
-.mytheme .v-button-Nav {
-	background-color: #808080;
+.mytheme .v-button-Selected {
+	background-color: #FFFFFF;
 	margin: 0px;
-	padding: 0;
+	text-align: left;
+	padding-left: 5px;
 	border: none;
 	border-radius: 0px;
-	color: white;
-	border: none;
+	color: #000000;
+	border: 1px solid #5EB395;
 	border-radius: 0px;
 	background-image: none;
 	display: block;
@@ -15112,24 +15117,34 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-button-Nav:hover {
-	background-color: #505050;
-	color: white;
+	background-color: #FFFFFF;
+	margin: 0px;
+	text-align: left;
+	padding-left: 5px;
+	border: none;
+	border-radius: 0px;
+	color: #000000;
+	border: 1px solid #5EB395;
+	border-radius: 0px;
+	background-image: none;
+	display: block;
+	outline: none;
+	box-shadow: none;
 }
 
 .mytheme .v-accordion-item-content {
-	background-color: #808080;
+	background-color: #FFFFFF;
 	display: block;
 	outline: none;
 }
 
 .mytheme .v-accordion-item {
-	background-color: #B82601;
+	background-color: #4D74C0;
 	display: block;
 	outline: none;
 	box-shadow: none;
 	margin: 0px;
 	padding: 0;
-	border: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
@@ -15143,4 +15158,6 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .v-accordion-item-caption .v-caption {
 	box-shadow: none;
 	border: none;
+	color: #FEFFFF;
+	border-bottom: 2px solid #EFB64F;
 }

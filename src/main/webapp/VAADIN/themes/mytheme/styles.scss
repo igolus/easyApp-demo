@@ -27,14 +27,13 @@
     line-height: 24pt;
     padding: 5px;
   }
-
-
   
     .v-button-Selected {
-    	background-color: #000066;
+    	background-color: #25282F;
   		margin: 0px;
   		padding: 0;
 		border: none;
+		border-left: 5px solid #639DEA;
 	    border-radius: 0px;
 	    color: white;
 	    border:none;
@@ -46,7 +45,7 @@
     }
     
      .v-button-Nav {
-     	background-color: #808080;
+     	background-color: #2F323B;
   		margin: 0px;
   		padding: 0;
 		border: none;
@@ -61,8 +60,18 @@
     }
     
    .v-button-Nav:hover {
-	    background-color: #505050;
+	    background-color: #25282F;
+	  	margin: 0px;
+  		padding: 0;
+		border: none;
+	    border-radius: 0px;
 	    color: white;
+	    border:none;
+	    border-radius: 0px;
+	    background-image: none;  
+	    display:block; 
+	    outline: none;
+	    box-shadow: none;
     }
     
 	.v-accordion-item-content {
@@ -72,7 +81,7 @@
 	}
 	
 	.v-accordion-item {
-		background-color: #B82601;
+		background-color: #5C9EF5;
 		display: block;
 		outline: none;
 		box-shadow: none;

@@ -11,7 +11,7 @@ import com.vaadin.ui.Grid;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.VerticalLayout;
 
-@ContentView(sortingOrder=2, viewName = "Table", icon = "icons/Java-icon.png", rootViewParent = HomeRoot.class, componentParent = ViewOne.class)
+@ContentView(sortingOrder=2, viewName = "Table", icon = "icons/Java-icon.png", rootViewParent = HomeRoot.class)
 @SuppressWarnings("serial")
 public class ViewTwo extends EasyAppLayout {
 

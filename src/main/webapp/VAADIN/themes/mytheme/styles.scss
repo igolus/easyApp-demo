@@ -30,8 +30,24 @@
   
     .v-button-TopBar {
     	height: 100%;
+    	background-color: #FFFFFF;
+    	background-image: none;  
     }
     
+    	    
+    .v-gridlayout-TopBar {
+    	background-color: #5F6C72;
+    	margin: none;
+    	.v-button {
+    		background-color: #FFFFFF;
+    	}
+    }
+    
+    .v-spacing {
+		height: 0px;
+	}
+    
+
     
      .v-button-Nav {
      	background-color: #FFFFFF;

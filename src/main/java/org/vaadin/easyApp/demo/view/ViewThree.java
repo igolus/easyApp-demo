@@ -12,7 +12,7 @@ import com.vaadin.ui.Notification;
 import com.vaadin.ui.Tree;
 import com.vaadin.ui.VerticalLayout;
 
-@ContentView(sortingOrder=1, viewName = "Tree", icon = "ANCHOR", rootViewParent = HomeRoot.class, componentParent = ViewOne.class)
+@ContentView(sortingOrder=1, viewName = "Tree", icon = "ANCHOR", rootViewParent = HomeRoot.class)
 @SuppressWarnings("serial")
 public class ViewThree extends EasyAppLayout  {
 

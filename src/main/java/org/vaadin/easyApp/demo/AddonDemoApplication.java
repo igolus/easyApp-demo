@@ -3,6 +3,7 @@ package org.vaadin.easyApp.demo;
 import java.util.Collections;
 
 import org.vaadin.easyapp.EasyAppBuilder;
+import org.vaadin.easyapp.event.SearchTrigger;
 import org.vaadin.easyapp.ui.ViewWithToolBar;
 import org.vaadin.easyapp.util.ActionContainerBuilder;
 
@@ -32,9 +33,9 @@ public class AddonDemoApplication extends UI {
         layout.setSizeFull();
         
         
-        Image image = new Image(null, new ThemeResource("favicon.ico"));
-		image.setWidth(50, Unit.PIXELS);
-		image.setHeight(50, Unit.PIXELS);
+        Image image = new Image(null, new ThemeResource("gene_white_transp.png"));
+//		image.setWidth(50, Unit.PIXELS);
+//		image.setHeight(50, Unit.PIXELS);
 		
 		EasyAppBuilder easyAppBuilder = new EasyAppBuilder(Collections.singletonList("org.vaadin.easyApp.demo.view"));
 		easyAppBuilder.withNavigationIcon(image);
@@ -42,11 +43,12 @@ public class AddonDemoApplication extends UI {
 		easyAppBuilder.withTopBarIcon(image);
 		easyAppBuilder.withRessourceBundle(null);
 		easyAppBuilder.withNavigationStyle("Nav", "Selected");
-		
+		easyAppBuilder.withContentStyle("Content");
 		
 		ActionContainerBuilder actionContainerBuilder = new ActionContainerBuilder(null)
 				.addButton("Test", VaadinIcons.MINUS, null , this::always, this::test);
-		actionContainerBuilder.withStyleNam("TopBar");
+		actionContainerBuilder.withStyleName("TopBar");
+		actionContainerBuilder.setSearch(this::searchTriggered);
 		actionContainerBuilder.addImageIcon(image);
 		easyAppBuilder.withActionContainer(actionContainerBuilder.build());
 	
@@ -63,6 +65,11 @@ public class AddonDemoApplication extends UI {
 	
 	public boolean always() {
 		return true;
+	}
+	
+	public void searchTriggered(String search) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

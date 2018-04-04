@@ -34,8 +34,8 @@ public class AddonDemoApplication extends UI {
         
         
         Image image = new Image(null, new ThemeResource("gene_white_transp.png"));
-//		image.setWidth(50, Unit.PIXELS);
-//		image.setHeight(50, Unit.PIXELS);
+		image.setWidth(40, Unit.PIXELS);
+		image.setHeight(40, Unit.PIXELS);
 		
 		EasyAppBuilder easyAppBuilder = new EasyAppBuilder(Collections.singletonList("org.vaadin.easyApp.demo.view"));
 		easyAppBuilder.withNavigationIcon(image);
@@ -45,8 +45,8 @@ public class AddonDemoApplication extends UI {
 		easyAppBuilder.withNavigationStyle("Nav", "Selected");
 		easyAppBuilder.withContentStyle("Content");
 		
-		ActionContainerBuilder actionContainerBuilder = new ActionContainerBuilder(null)
-				.addButton("Test", VaadinIcons.MINUS, null , this::always, this::test);
+		ActionContainerBuilder actionContainerBuilder = new ActionContainerBuilder(null);
+				//.addButton("Test", VaadinIcons.MINUS, null , this::always, this::test);
 		actionContainerBuilder.withStyleName("TopBar");
 		actionContainerBuilder.setSearch(this::searchTriggered);
 		actionContainerBuilder.addImageIcon(image);

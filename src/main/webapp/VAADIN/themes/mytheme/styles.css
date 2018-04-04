@@ -15082,7 +15082,21 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-button-TopBar {
-	height: 100%;
+	background-color: #FFFFFF;
+	background-image: none;
+}
+
+.mytheme .v-gridlayout-TopBar {
+	background-color: #5F6C72;
+	margin: none;
+}
+
+.mytheme .v-gridlayout-TopBar .v-button {
+	background-color: #FFFFFF;
+}
+
+.mytheme .v-spacing {
+	height: 0px;
 }
 
 .mytheme .v-button-Nav {
@@ -15114,6 +15128,10 @@ div.v-layout.v-horizontal.v-widget {
 	display: block;
 	outline: none;
 	box-shadow: none;
+}
+
+.mytheme .v-button-Nav:after {
+	content: none;
 }
 
 .mytheme .v-button-Nav:hover {

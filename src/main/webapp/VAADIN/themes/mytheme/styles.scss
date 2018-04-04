@@ -29,7 +29,6 @@
   }
   
     .v-button-TopBar {
-    	height: 100%;
     	background-color: #FFFFFF;
     	background-image: none;  
     }
@@ -78,6 +77,10 @@
 	    display:block; 
 	    outline: none;
 	    box-shadow: none;
+    }
+    
+    .v-button-Nav:after {
+        content: none;
     }
     
    .v-button-Nav:hover {

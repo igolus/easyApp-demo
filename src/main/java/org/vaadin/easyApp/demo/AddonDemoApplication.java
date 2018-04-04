@@ -14,6 +14,7 @@ import com.vaadin.server.ThemeResource;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Image;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
@@ -24,8 +25,11 @@ import com.vaadin.ui.VerticalLayout;
 @Theme("mytheme")
 public class AddonDemoApplication extends UI {
 
-    private ViewWithToolBar easyAppMainView;
-	//private static AddonDemoApplication instance;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private ViewWithToolBar easyAppMainView;
 
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
@@ -39,7 +43,6 @@ public class AddonDemoApplication extends UI {
 		
 		EasyAppBuilder easyAppBuilder = new EasyAppBuilder(Collections.singletonList("org.vaadin.easyApp.demo.view"));
 		easyAppBuilder.withNavigationIcon(image);
-		//easyAppBuilder.withNavigationStlyle("Nav", "Selected");
 		easyAppBuilder.withTopBarIcon(image);
 		easyAppBuilder.withRessourceBundle(null);
 		easyAppBuilder.withNavigationStyle("Nav", "Selected");
@@ -56,11 +59,10 @@ public class AddonDemoApplication extends UI {
 		layout.addComponents(easyAppMainView);
         
         setContent(layout);
-        
     }
 	
 	public void test(ClickEvent event) {
-		
+		Notification.show("Search to be implemented");
 	}
 	
 	public boolean always() {
@@ -68,7 +70,6 @@ public class AddonDemoApplication extends UI {
 	}
 	
 	public void searchTriggered(String search) {
-		// TODO Auto-generated method stub
 		
 	}
 	

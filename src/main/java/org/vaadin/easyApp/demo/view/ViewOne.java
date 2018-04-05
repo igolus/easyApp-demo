@@ -18,7 +18,7 @@ import com.vaadin.ui.VerticalLayout;
 
 @ContentView(sortingOrder=2, viewName = "Table", icon = "icons/Java-icon.png", rootViewParent = HomeRoot.class)
 @SuppressWarnings("serial")
-public abstract class ViewOne extends DemoLayout {
+public class ViewOne extends DemoLayout {
 	
     public ViewOne() {
     	super();

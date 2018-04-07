@@ -45,7 +45,8 @@ public class AddonDemoApplication extends UI {
 		easyAppBuilder.withNavigationIcon(image);
 		easyAppBuilder.withTopBarIcon(image);
 		easyAppBuilder.withRessourceBundle(null);
-		easyAppBuilder.withNavigationStyle("Nav", "Selected");
+		easyAppBuilder.withNavigatorStyle("Nav");
+		easyAppBuilder.withNavigationButtonSelectedStyle("Selected");
 		easyAppBuilder.withContentStyle("Content");
 		
 		ActionContainerBuilder actionContainerBuilder = new ActionContainerBuilder(null);

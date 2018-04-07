@@ -4,7 +4,58 @@
 // This file prefixes all rules with the theme name to avoid causing conflicts with other themes.
 // The actual styles should be defined in mytheme.scss
 
+    
+@mixin buttonNoBorder($backgroundColor, $textColor) {
+ 	background-color: $backgroundColor;
+	margin: 0px;
+	text-align: left;
+	padding-left: 5px;
+	border: none;
+    border-radius: 0px;
+    color:$textColor;
+    border-radius: 0px;
+    background-image: none;  
+    display:block; 
+    outline: none;
+    box-shadow: none;
+    top:0px;
+    -webkit-box-shadow: none;
+}
+
+@mixin buttonForTopBar($backgroundColor, $textColor) {
+ 	background-color: $backgroundColor;
+	margin: 0px;
+	text-align: center;
+	border: none;
+    border-radius: 0px;
+    color:$textColor;
+    border-radius: 0px;
+    background-image: none;  
+    display:block; 
+    outline: none;
+    box-shadow: none;
+    top:0px;
+    -webkit-box-shadow: none;
+}
+	    
+
 .mytheme {
+  //Nav panel
+  $buttonNavigatorBackroundColor: #FFFFFF;
+  $buttonNavigatorTextColor: #000000;
+  $buttonSelectedNavigatorBackroundColor: #EEEEEE;
+  
+  $accordionItemBackroundColor: #4D74C0;
+  $accordionItemBorder: 2px solid #EFB64F;
+  $accordionContentColor: #FEFFFF;
+  
+  //Top Bar
+  $panelTopBarBackgroundColor: #5F6C72;
+  $buttonTopBarBackgroundColor: #2365EE;
+  $buttonTopBarContentColor: #000000;
+  
+  
+  
   @include addons;
   @include mytheme;
 
@@ -19,6 +70,11 @@
     background: white;
   }
   
+      
+	.v-spacing {
+		height: 0px;
+	}
+  
   /* All labels have white text on black background */
   .v-label {
     background: black;
@@ -29,7 +85,7 @@
   }
   
     .v-button-TopBar {
-    	background-color: #FFFFFF;
+    	background-color: $backroundNavigatorColor;
     	background-image: none;  
     }
     
@@ -43,72 +99,37 @@
     
     	    
     .v-gridlayout-TopBar {
-    	background-color: #5F6C72;
+    	background-color: $panelTopBarBackgroundColor;
     	margin: none;
     	.v-button {
-    		background-color: #FFFFFF;
+    		@include buttonForTopBar($buttonTopBarBackgroundColor, $buttonTopBarContentColor)
     	}
     }
-    
-    .v-spacing {
-		height: 0px;
-	}
-    
 
-    
+	
+	.v-button:focus:after {
+        border: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+	}
+
      .v-button-Nav {
-     	background-color: #FFFFFF;
-  		margin: 0px;
-  		text-align: left;
-  		padding-left: 5px;
-		border: none;
-	    border-radius: 0px;
-	    color: #000000;
-	    border-radius: 0px;
-	    background-image: none;  
-	    display:block; 
-	    outline: none;
-	    box-shadow: none;
-	    top:0px;
+     	 @include buttonNoBorder($buttonNavigatorBackroundColor, $buttonNavigatorTextColor);
     }
     
     .v-button-Selected {
-	    background-color: #EEEEEE;
-	  	margin: 0px;
-	  	text-align: left;
-  		padding-left: 5px;
-		border: none;
-	    border-radius: 0px;
-	    color: #000000;
-	    //border: 1px solid #5EB395;
-	    border-radius: 0px;
-	    background-image: none;  
-	    top: 0px;
-	    display:block; 
-	    outline: none;
-	    box-shadow: none;
-	    top:0px;
+        @include buttonNoBorder($buttonSelectedNavigatorBackroundColor, $buttonNavigatorTextColor);
     }
 	
-	v-button:focus::after {
-		border: none;
+		
+	.v-button-link:after {
+	  content: none;
+	  box-shadow: none;
 	}
-    
+	
+	    
    .v-button-Nav:hover {
-	    background-color: #EEEEEE;
-	  	margin: 0px;
-	  	text-align: left;
-  		padding-left: 5px;
-		border: none;
-	    border-radius: 0px;
-	    color: #000000;
-	    //border: 1px solid #5EB395;
-	    border-radius: 0px;
-	    background-image: none;  
-	    display:block; 
-	    outline: none;
-	    box-shadow: none;
-	    top:0px;
+   		@include buttonNoBorder($buttonSelectedNavigatorBackroundColor, $buttonNavigatorTextColor);
     }
     
 	.v-accordion-item-content {
@@ -117,26 +138,27 @@
 		outline: none;
 	}
 	
-	.v-accordion-item {
-		background-color:#4D74C0;
-		display: block;
-		outline: none;
-		box-shadow: none;
-		margin: 0px;
-  		padding: 0;
- 		@include box-shadow(none);
-	}
 	
-	.v-accordion-item-caption {
-		box-shadow: none;
-		@include box-shadow(none);
-		.v-caption {
+	.v-accordion-Nav {
+		.v-accordion-item {
+			background-color: $accordionItemBackroundColor;
+			display: block;
+			outline: none;
 			box-shadow: none;
-			border: none;
-			color: #FEFFFF;
-			border-bottom: 2px solid #EFB64F;
+			margin: 0px;
+	  		padding: 0;
+	 		@include box-shadow(none);
+	 		
+	 		.v-accordion-item-caption {
+				box-shadow: none;
+				@include box-shadow(none);
+				.v-caption {
+					box-shadow: none;
+					border: none;
+					color: $accordionContentColor;;
+					border-bottom: $accordionItemBorder;
+				}
+			}
 		}
 	}
-	
-  
 }

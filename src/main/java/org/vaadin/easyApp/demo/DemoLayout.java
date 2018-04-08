@@ -1,52 +1,90 @@
 package org.vaadin.easyApp.demo;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.commons.io.IOUtils;
+import org.apache.log4j.Logger;
+import org.vaadin.aceeditor.AceEditor;
+import org.vaadin.aceeditor.AceMode;
+import org.vaadin.aceeditor.AceTheme;
 import org.vaadin.easyapp.ui.ViewWithToolBar;
+import org.vaadin.easyapp.util.ActionContainer;
 import org.vaadin.easyapp.util.EasyAppLayout;
 
 import com.vaadin.icons.VaadinIcons;
-import com.vaadin.navigator.View;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.BrowserFrame;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.TabSheet;
-import com.vaadin.ui.TabSheet.Tab;
-import com.vaadin.ui.VerticalLayout;
 
-public abstract class DemoLayout extends VerticalLayout implements View {
+public abstract class DemoLayout extends EasyAppLayout {
+
+	private static final String SRC_FOLDER = "src/";
+
+	private static final String JAVA_EXT = ".java";
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private static Logger logger = Logger.getLogger(DemoLayout.class);
 
 
 	public DemoLayout() {
 		super();
 		TabSheet tabSheet = new TabSheet();
 		tabSheet.setSizeFull();
-		//tabSheet.addTab(new ViewWithToolBar(getComponent()), "Component", VaadinIcons.ABACUS);
+		
+		ViewWithToolBar viewWithToolBar = new ViewWithToolBar();
+		viewWithToolBar.setActionContainerStlyle("Container");
+		
+		TargetEasyAppLayout targetEasyAppLayout = new TargetEasyAppLayout(getComponent(), buildTargetActionContainer());
+		viewWithToolBar.buildComponents(targetEasyAppLayout);
+		
+		
+
+		tabSheet.addTab(viewWithToolBar, "Component", VaadinIcons.ABACUS);
 
 		BrowserFrame vaadinBrowser = getBrowser(getVaadinHomeUrl());
-		//vaadinBrowser.addStyleName("embedded-frame");
-
-		VerticalLayout verticalLayout = new VerticalLayout();
-		//vaadinBrowser.setHeight("100%");
-		
-		verticalLayout.setMargin(false);
-		verticalLayout.setSizeFull();
-		verticalLayout.addComponent(vaadinBrowser);
-		verticalLayout.setExpandRatio(vaadinBrowser, 1.0f);
-		
+	
 		if (vaadinBrowser != null) {
 			tabSheet.addTab(vaadinBrowser, "Vaadin Links", VaadinIcons.VAADIN_H);
 		}
-		BrowserFrame sourceBrowser = getBrowser(getSourceUrl());
-		if (sourceBrowser != null) {
-			tabSheet.addTab(sourceBrowser, "Source Code", VaadinIcons.CODE);
-			//tab.set
+		
+		AceEditor aceEditor = getSourceEditor();
+		if (aceEditor != null) {
+			tabSheet.addTab(aceEditor, "Source Code", VaadinIcons.CODE);
 		}
+		
 		setSizeFull();
 		addComponent(tabSheet);
+	}
+	
+	private AceEditor getSourceEditor() {
+		List<String> splitList = Arrays.asList(this.getClass().toString().split("\\."));
+		InputStream in = getClass().getClassLoader().getResourceAsStream(SRC_FOLDER + splitList.get(splitList.size() - 1) + JAVA_EXT);
+		if (in != null) {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+			try {
+				String source = IOUtils.toString(reader);
+				AceEditor aceEditor = new AceEditor();
+				aceEditor.setValue(source);
+				aceEditor.setMode(AceMode.java);
+				aceEditor.setTheme(AceTheme.eclipse);
+				aceEditor.setSizeFull();
+				aceEditor.setReadOnly(true);
+				return aceEditor;
+			} catch (IOException e) {
+				logger.error("Unable to load java source code", e);
+			}
+		}
+		return null;
 	}
 
 	private BrowserFrame getBrowser(String url) {
@@ -76,8 +114,27 @@ public abstract class DemoLayout extends VerticalLayout implements View {
 	}
 
 
-	public abstract EasyAppLayout getComponent();
+	public abstract Component getComponent();
+	
+	public abstract ActionContainer buildTargetActionContainer();
+	
+	private class TargetEasyAppLayout extends EasyAppLayout {
 
+		private ActionContainer targetActionContainer;
 
+		public TargetEasyAppLayout(Component targetComponent, ActionContainer targetActionContainer) {
+			super();
+			this.targetActionContainer = targetActionContainer;
+			setSizeFull();
+			addComponent(targetComponent);
+			// TODO Auto-generated constructor stub
+		}
+
+		@Override
+		public ActionContainer buildActionContainer() {
+			// TODO Auto-generated method stub
+			return targetActionContainer;
+		}
+	}
 
 }

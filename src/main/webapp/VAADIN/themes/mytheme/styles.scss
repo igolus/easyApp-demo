@@ -37,6 +37,19 @@
     top:0px;
     -webkit-box-shadow: none;
 }
+
+@mixin buttonForContainer($backgroundColor, $textColor) {
+ 	background-color: $backgroundColor;
+    border-radius: 0px;
+    color:$textColor;
+    border-radius: 0px;
+    background-image: none;  
+    display:block; 
+    outline: none;
+    box-shadow: 1px 2px;
+    top:0px;
+}
+	   
 	    
 
 .mytheme {
@@ -51,11 +64,15 @@
   
   //Top Bar
   $panelTopBarBackgroundColor: #5F6C72;
-  $buttonTopBarBackgroundColor: #2365EE;
-  $buttonTopBarContentColor: #000000;
+  $buttonTopBarBackgroundColor: #5F6C72;
+  $buttonTopBarContentColor: #FFFFFF;
+  
+  $buttonHoverTopBarBackgroundColor: #e3c8b9;
+  $buttonHoverTopBarContentColor: #FFFFFF;
+  
   
   //Container
-  $containerBackGround: #5234EF;
+  $containerBackGround: #FFFFFF;
   $buttoncontainergroundColor: #FFFFFF;
   $buttoncontainerContentColor: #000000;
   
@@ -109,19 +126,20 @@
     	.v-button {
     		@include buttonForTopBar($buttonTopBarBackgroundColor, $buttonTopBarContentColor)
     	}
-    }
-    
-    .v-gridlayout-Container {
-    	background-color: $containerBackGround;
-    	margin: none;
-    	.v-button {
-    		@include buttonForTopBar($buttoncontainergroundColor, $buttoncontainerContentColor)
+    	.v-button:hover {
+    		@include buttonForTopBar($buttonHoverTopBarBackgroundColor, $buttonHoverTopBarContentColor)
     	}
     }
     
-    
-
-	
+    .v-gridlayout-Container {
+    	margin: 0px 0px 5px 0px;
+    	background-color: $containerBackGround;
+    	margin: none;
+    	.v-button {
+    		@include buttonForContainer($buttoncontainergroundColor, $buttoncontainerContentColor)
+    	}
+    }
+ 	
 	.v-button:focus:after {
         border: none;
         -webkit-box-shadow: none;

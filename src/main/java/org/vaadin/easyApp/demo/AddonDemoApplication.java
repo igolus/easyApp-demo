@@ -40,7 +40,7 @@ public class AddonDemoApplication extends UI {
         layout.setSizeFull();
         
         
-        Image image = new Image(null, new ThemeResource("89047535-dna-chain-icon-gene-research-genetics-symbol.jpg"));
+        Image image = new Image(null, new ThemeResource("LogoMakr_7ZbveE.png"));
 		image.setWidth(40, Unit.PIXELS);
 		image.setHeight(40, Unit.PIXELS);
 		
@@ -56,15 +56,13 @@ public class AddonDemoApplication extends UI {
 		easyAppBuilder.withMenuCollapsable();
 		easyAppBuilder.withTopBarStyle("TopBar");
 		
+		easyAppBuilder.withMenuCollapsable();
+		
 		ActionContainerBuilder actionContainerBuilder = new ActionContainerBuilder(null);
 				//.addButton("Test", VaadinIcons.MINUS, null , this::always, this::test);
 		actionContainerBuilder.addImageIcon(image,  Position.LEFT, null);
 		actionContainerBuilder.addButton("Test", VaadinIcons.MINUS, null , this::always, this::test, Position.LEFT, null);
 		actionContainerBuilder.addSearch(this::searchTriggered, Position.RIGHT, null);
-//		actionContainerBuilder.withTopBarStyle("TopBar");
-//		actionContainerBuilder.setSearch(this::searchTriggered);
-		
-
 		
 		
 		easyAppBuilder.withActionContainer(actionContainerBuilder.build());

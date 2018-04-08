@@ -1,8 +1,10 @@
 package org.vaadin.easyApp.demo.view;
 
 import org.vaadin.easyapp.util.ActionContainer;
+import org.vaadin.easyapp.util.ActionContainerBuilder;
 import org.vaadin.easyapp.util.EasyAppLayout;
 import org.vaadin.easyapp.util.EasyAppView;
+import org.vaadin.easyapp.util.ActionContainer.Position;
 import org.vaadin.easyapp.util.annotations.ContentView;
 
 import com.vaadin.navigator.View;
@@ -10,6 +12,7 @@ import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Button.ClickEvent;
 
 @ContentView(sortingOrder=2, viewName = "Table", icon = "icons/Java-icon.png", rootViewParent = HomeRoot.class)
 @SuppressWarnings("serial")
@@ -50,8 +53,27 @@ public class ViewTwo extends EasyAppLayout {
 
 	@Override
 	public ActionContainer buildActionContainer() {
-		// TODO Auto-generated method stub
-		return null;
+		ActionContainerBuilder builder = new ActionContainerBuilder(null)
+				.addButton("B1", "ABACUS", null,  this::b1Clickable			
+					, this::b1Clicked, Position.LEFT, null)
+				.addButton("B2", "ABACUS", null,  this::b2Clickable			
+					, this::b2Clicked, Position.LEFT, null);
+
+		return builder.build();
+	}
+	
+	public boolean b1Clickable() {
+		return true;
+	}
+
+	public void b1Clicked(ClickEvent event) {
+	}
+
+	public boolean b2Clickable() {
+		return true;
+	}
+
+	public void b2Clicked(ClickEvent event) {
 	}
 
 }

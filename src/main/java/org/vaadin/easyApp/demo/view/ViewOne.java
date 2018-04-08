@@ -9,6 +9,7 @@ import org.vaadin.easyapp.util.annotations.ContentView;
 
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.VerticalLayout;
@@ -20,11 +21,7 @@ public class ViewOne extends DemoLayout {
     public ViewOne() {
     	super();
     }
-    
-    @Override
-    public EasyAppLayout getComponent() {
-		return new InnerComponent();	
-    }
+
 
 	public void enter(ViewChangeEvent event) {
 		Notification.show("Entering view One");
@@ -42,40 +39,37 @@ public class ViewOne extends DemoLayout {
 		return "https://github.com/miraclefoxx/bigdecimal-math/blob/master/src/main/java/io/github/miraclefoxx/math/Bernoulli.java";
 	}
 	
-	private class InnerComponent extends EasyAppLayout {
-		
-		private InnerComponent() {
-			VerticalLayout layout = new VerticalLayout();
-			Panel panel = new Panel("Astronomer Panel");
-			panel.setSizeFull();
-			layout.addComponent(panel);
-			addComponent(layout);
-		}
-		
-		public ActionContainer buildActionContainer() {
-			ActionContainerBuilder builder = new ActionContainerBuilder(null)
-					.addButton("B1", "ABACUS", null,  this::b1Clickable			
-						, this::b1Clicked, Position.LEFT, null)
-					.addButton("B2", "ABACUS", null,  this::b2Clickable			
-						, this::b2Clicked, Position.LEFT, null);
+	public ActionContainer buildTargetActionContainer() {
+		ActionContainerBuilder builder = new ActionContainerBuilder(null)
+				.addButton("B1", "ABACUS", null,  this::b1Clickable			
+					, this::b1Clicked, Position.LEFT, null)
+				.addButton("B2", "ABACUS", null,  this::b2Clickable			
+					, this::b2Clicked, Position.LEFT, null);
 
-			return builder.build();
-		}
+		return builder.build();
+	}
 
-		
-		public boolean b1Clickable() {
-			return true;
-		}
+	
+	public boolean b1Clickable() {
+		return true;
+	}
 
-		public void b1Clicked(ClickEvent event) {
-		}
+	public void b1Clicked(ClickEvent event) {
+	}
 
-		public boolean b2Clickable() {
-			return true;
-		}
+	public boolean b2Clickable() {
+		return true;
+	}
 
-		public void b2Clicked(ClickEvent event) {
-		}
+	public void b2Clicked(ClickEvent event) {
+	}
+
+
+	@Override
+	public Component getComponent() {
+		Panel panel = new Panel("Astronomer Panel");
+		panel.setSizeFull();
+		return panel;
 	}
 
 }

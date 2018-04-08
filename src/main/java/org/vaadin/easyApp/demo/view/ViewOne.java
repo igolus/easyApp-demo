@@ -4,16 +4,13 @@ import org.vaadin.easyApp.demo.DemoLayout;
 import org.vaadin.easyapp.util.ActionContainer;
 import org.vaadin.easyapp.util.ActionContainerBuilder;
 import org.vaadin.easyapp.util.EasyAppLayout;
+import org.vaadin.easyapp.util.ActionContainer.Position;
 import org.vaadin.easyapp.util.annotations.ContentView;
 
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-import com.vaadin.ui.AbstractOrderedLayout;
-import com.vaadin.ui.Component;
 import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
-import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 
 @ContentView(sortingOrder=2, viewName = "Table", icon = "icons/Java-icon.png", rootViewParent = HomeRoot.class)
@@ -25,13 +22,8 @@ public class ViewOne extends DemoLayout {
     }
     
     @Override
-    public Component getComponent() {
-		VerticalLayout layout = new VerticalLayout();
-		Panel panel = new Panel("Astronomer Panel");
-		panel.setSizeFull();
-		layout.addComponent(panel);
-		return layout;		
-    	
+    public EasyAppLayout getComponent() {
+		return new InnerComponent();	
     }
 
 	public void enter(ViewChangeEvent event) {
@@ -49,35 +41,41 @@ public class ViewOne extends DemoLayout {
 	public String getSourceUrl() {
 		return "https://github.com/miraclefoxx/bigdecimal-math/blob/master/src/main/java/io/github/miraclefoxx/math/Bernoulli.java";
 	}
-
-	@Override
-	public ActionContainer buildActionContainer() {
-		ActionContainerBuilder builder = new ActionContainerBuilder(null)
-				.addButton("B1", "ABACUS", null,  this::b1Clickable			
-					, this::b1Clicked)
-				.addButton("B2", "ABACUS", null,  this::b2Clickable			
-					, this::b2Clicked)
-				.setSearch(this::search);
-
-		return builder.build();
-	}
-
 	
-	public boolean b1Clickable() {
-		return true;
+	private class InnerComponent extends EasyAppLayout {
+		
+		private InnerComponent() {
+			VerticalLayout layout = new VerticalLayout();
+			Panel panel = new Panel("Astronomer Panel");
+			panel.setSizeFull();
+			layout.addComponent(panel);
+			addComponent(layout);
+		}
+		
+		public ActionContainer buildActionContainer() {
+			ActionContainerBuilder builder = new ActionContainerBuilder(null)
+					.addButton("B1", "ABACUS", null,  this::b1Clickable			
+						, this::b1Clicked, Position.LEFT, null)
+					.addButton("B2", "ABACUS", null,  this::b2Clickable			
+						, this::b2Clicked, Position.LEFT, null);
+
+			return builder.build();
+		}
+
+		
+		public boolean b1Clickable() {
+			return true;
+		}
+
+		public void b1Clicked(ClickEvent event) {
+		}
+
+		public boolean b2Clickable() {
+			return true;
+		}
+
+		public void b2Clicked(ClickEvent event) {
+		}
 	}
 
-	public void b1Clicked(ClickEvent event) {
-	}
-
-	public boolean b2Clickable() {
-		return true;
-	}
-
-	public void b2Clicked(ClickEvent event) {
-	}
-	
-	public void search(String searchValue) {
-		Notification.show("Search for:" + searchValue);
-	}
 }

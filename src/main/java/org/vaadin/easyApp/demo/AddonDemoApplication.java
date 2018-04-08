@@ -3,9 +3,12 @@ package org.vaadin.easyApp.demo;
 import java.util.Collections;
 
 import org.vaadin.easyapp.EasyAppBuilder;
+import org.vaadin.easyapp.EasyAppMainView;
 import org.vaadin.easyapp.event.SearchTrigger;
 import org.vaadin.easyapp.ui.ViewWithToolBar;
 import org.vaadin.easyapp.util.ActionContainerBuilder;
+import org.vaadin.easyapp.util.ActionContainer.InsertPosition;
+import org.vaadin.easyapp.util.ActionContainer.Position;
 
 import com.vaadin.annotations.Push;
 import com.vaadin.annotations.Theme;
@@ -29,7 +32,7 @@ public class AddonDemoApplication extends UI {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ViewWithToolBar easyAppMainView;
+	private EasyAppMainView easyAppMainView;
 
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
@@ -37,7 +40,7 @@ public class AddonDemoApplication extends UI {
         layout.setSizeFull();
         
         
-        Image image = new Image(null, new ThemeResource("gene_white_transp.png"));
+        Image image = new Image(null, new ThemeResource("89047535-dna-chain-icon-gene-research-genetics-symbol.jpg"));
 		image.setWidth(40, Unit.PIXELS);
 		image.setHeight(40, Unit.PIXELS);
 		
@@ -48,22 +51,32 @@ public class AddonDemoApplication extends UI {
 		easyAppBuilder.withNavigatorStyle("Nav");
 		easyAppBuilder.withNavigationButtonSelectedStyle("Selected");
 		easyAppBuilder.withContentStyle("Content");
+		easyAppBuilder.withActionContainerStyle("Container");
+		easyAppBuilder.withNavigatorSplitPosition(300);
+		easyAppBuilder.withMenuCollapsable();
+		easyAppBuilder.withTopBarStyle("TopBar");
 		
 		ActionContainerBuilder actionContainerBuilder = new ActionContainerBuilder(null);
 				//.addButton("Test", VaadinIcons.MINUS, null , this::always, this::test);
-		actionContainerBuilder.withStyleName("TopBar");
-		actionContainerBuilder.setSearch(this::searchTriggered);
-		actionContainerBuilder.addImageIcon(image);
+		actionContainerBuilder.addImageIcon(image,  Position.LEFT, null);
+		actionContainerBuilder.addButton("Test", VaadinIcons.MINUS, null , this::always, this::test, Position.LEFT, null);
+		actionContainerBuilder.addSearch(this::searchTriggered, Position.RIGHT, null);
+//		actionContainerBuilder.withTopBarStyle("TopBar");
+//		actionContainerBuilder.setSearch(this::searchTriggered);
+		
+
+		
+		
 		easyAppBuilder.withActionContainer(actionContainerBuilder.build());
 	
-		easyAppMainView = easyAppBuilder.build(this);
-		layout.addComponents(easyAppMainView);
+		layout.addComponents(easyAppBuilder.build(this));
+		easyAppMainView = easyAppBuilder.getMainView();
         
         setContent(layout);
     }
 	
 	public void test(ClickEvent event) {
-		Notification.show("Search to be implemented");
+		easyAppMainView.switchNavigatorPanelDisplay();
 	}
 	
 	public boolean always() {
@@ -71,7 +84,7 @@ public class AddonDemoApplication extends UI {
 	}
 	
 	public void searchTriggered(String search) {
-		
+		Notification.show("Search to be implemented");
 	}
 	
 }

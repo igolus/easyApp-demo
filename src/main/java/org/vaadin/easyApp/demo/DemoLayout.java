@@ -1,8 +1,10 @@
 package org.vaadin.easyApp.demo;
 
+import org.vaadin.easyapp.ui.ViewWithToolBar;
 import org.vaadin.easyapp.util.EasyAppLayout;
 
 import com.vaadin.icons.VaadinIcons;
+import com.vaadin.navigator.View;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.BrowserFrame;
 import com.vaadin.ui.Component;
@@ -10,13 +12,19 @@ import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.TabSheet.Tab;
 import com.vaadin.ui.VerticalLayout;
 
-public abstract class DemoLayout extends EasyAppLayout {
+public abstract class DemoLayout extends VerticalLayout implements View {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 
 	public DemoLayout() {
 		super();
 		TabSheet tabSheet = new TabSheet();
 		tabSheet.setSizeFull();
-		tabSheet.addTab(getComponent(), "Component", VaadinIcons.ABACUS);
+		//tabSheet.addTab(new ViewWithToolBar(getComponent()), "Component", VaadinIcons.ABACUS);
 
 		BrowserFrame vaadinBrowser = getBrowser(getVaadinHomeUrl());
 		//vaadinBrowser.addStyleName("embedded-frame");
@@ -37,7 +45,7 @@ public abstract class DemoLayout extends EasyAppLayout {
 			tabSheet.addTab(sourceBrowser, "Source Code", VaadinIcons.CODE);
 			//tab.set
 		}
-
+		setSizeFull();
 		addComponent(tabSheet);
 	}
 
@@ -68,7 +76,7 @@ public abstract class DemoLayout extends EasyAppLayout {
 	}
 
 
-	public abstract Component getComponent();
+	public abstract EasyAppLayout getComponent();
 
 
 

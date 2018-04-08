@@ -54,6 +54,11 @@
   $buttonTopBarBackgroundColor: #2365EE;
   $buttonTopBarContentColor: #000000;
   
+  //Container
+  $containerBackGround: #5234EF;
+  $buttoncontainergroundColor: #FFFFFF;
+  $buttoncontainerContentColor: #000000;
+  
   
   
   @include addons;
@@ -105,6 +110,16 @@
     		@include buttonForTopBar($buttonTopBarBackgroundColor, $buttonTopBarContentColor)
     	}
     }
+    
+    .v-gridlayout-Container {
+    	background-color: $containerBackGround;
+    	margin: none;
+    	.v-button {
+    		@include buttonForTopBar($buttoncontainergroundColor, $buttoncontainerContentColor)
+    	}
+    }
+    
+    
 
 	
 	.v-button:focus:after {

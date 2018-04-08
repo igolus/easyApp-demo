@@ -55,13 +55,14 @@ public class AddonDemoApplication extends UI {
 		easyAppBuilder.withNavigatorSplitPosition(300);
 		easyAppBuilder.withMenuCollapsable();
 		easyAppBuilder.withTopBarStyle("TopBar");
+		easyAppBuilder.withApplicationTitle("EasyApp Laboratory");
+		easyAppBuilder.withContextualTextLabelStyle("Contextual");
 		
 		easyAppBuilder.withMenuCollapsable();
 		
 		ActionContainerBuilder actionContainerBuilder = new ActionContainerBuilder(null);
 				//.addButton("Test", VaadinIcons.MINUS, null , this::always, this::test);
 		actionContainerBuilder.addImageIcon(image,  Position.LEFT, null);
-		actionContainerBuilder.addButton("Test", VaadinIcons.MINUS, null , this::always, this::test, Position.LEFT, null);
 		actionContainerBuilder.addSearch(this::searchTriggered, Position.RIGHT, null);
 		
 		
@@ -72,10 +73,7 @@ public class AddonDemoApplication extends UI {
         
         setContent(layout);
     }
-	
-	public void test(ClickEvent event) {
-		easyAppMainView.switchNavigatorPanelDisplay();
-	}
+
 	
 	public boolean always() {
 		return true;

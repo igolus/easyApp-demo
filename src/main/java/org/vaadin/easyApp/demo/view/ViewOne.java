@@ -23,7 +23,7 @@ public class ViewOne extends DemoLayout {
     }
 
 
-	public void enter(ViewChangeEvent event) {
+	public void enterInView(ViewChangeEvent event) {
 		Notification.show("Entering view One");
 	}
 	
@@ -53,15 +53,20 @@ public class ViewOne extends DemoLayout {
 	public boolean b1Clickable() {
 		return true;
 	}
-
+	
+	boolean b2Clickable = false;
+	
 	public void b1Clicked(ClickEvent event) {
+		b2Clickable = !b2Clickable;
+		refreshClickable();
 	}
 
 	public boolean b2Clickable() {
-		return true;
+		return b2Clickable;
 	}
 
 	public void b2Clicked(ClickEvent event) {
+		refreshClickable();
 	}
 
 
@@ -71,5 +76,13 @@ public class ViewOne extends DemoLayout {
 		panel.setSizeFull();
 		return panel;
 	}
+
+
+	@Override
+	public String getTitle() {
+		return "View One";
+	}
+	
+	
 
 }

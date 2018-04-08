@@ -28,7 +28,7 @@ public class ViewFour extends EasyAppLayout {
 		addComponent(vertvalue);
 	}
 
-	public void enter(ViewChangeEvent event) {
+	public void enterInView(ViewChangeEvent event) {
 		Notification.show("Entering view 1");
 	}
 

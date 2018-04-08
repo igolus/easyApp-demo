@@ -49,6 +49,18 @@
     box-shadow: 1px 2px;
     top:0px;
 }
+
+
+@mixin buttonHoverForContainer($backgroundColor, $textColor) {
+ 	background-color: $backgroundColor;
+    border-radius: 0px;
+    color:$textColor;
+    border-radius: 0px;
+    background-image: none;  
+    display:block; 
+    outline: none;
+    top:0px;
+}
 	   
 	    
 
@@ -73,8 +85,11 @@
   
   //Container
   $containerBackGround: #FFFFFF;
-  $buttoncontainergroundColor: #FFFFFF;
-  $buttoncontainerContentColor: #000000;
+  $buttonContainergroundColor: #FFFFFF;
+  $buttonContainerContentColor: #000000;
+  
+  $buttonHoverContainergroundColor: #5F6C72;
+  $buttonHoverContainerContentColor: #000000;
   
   
   
@@ -129,14 +144,35 @@
     	.v-button:hover {
     		@include buttonForTopBar($buttonHoverTopBarBackgroundColor, $buttonHoverTopBarContentColor)
     	}
+    	.v-label {
+    		text-shadow: 2px 2px #aaaaaa;
+    		background: $panelTopBarBackgroundColor;
+    		font-size: 20pt;
+    		font-weight: bold;
+    		font-family: "Impact";
+    	}
+    	
     }
+    
+    
+    .v-label-Contextual {
+    	background: $panelTopBarBackgroundColor;
+    	font-size: 15pt;
+        font-weight: bold;
+        font-family: "Impact";
+    }
+    
+    
     
     .v-gridlayout-Container {
     	margin: 0px 0px 5px 0px;
     	background-color: $containerBackGround;
     	margin: none;
     	.v-button {
-    		@include buttonForContainer($buttoncontainergroundColor, $buttoncontainerContentColor)
+    		@include buttonForContainer($buttonContainergroundColor, $buttonContainerContentColor)
+    	}
+    	.v-button:hover  {
+    		@include buttonForContainer($buttonHoverContainergroundColor, $buttonHoverContainerContentColor)
     	}
     }
  	

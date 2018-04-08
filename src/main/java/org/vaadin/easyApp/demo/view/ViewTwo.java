@@ -47,7 +47,7 @@ public class ViewTwo extends EasyAppLayout {
         addComponent(table);
     }
 
-	public void enter(ViewChangeEvent event) {
+	public void enterInView(ViewChangeEvent event) {
 		Notification.show("Entering view Two");
 	}
 

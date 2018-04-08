@@ -17,6 +17,7 @@ import org.vaadin.easyapp.util.ActionContainer;
 import org.vaadin.easyapp.util.EasyAppLayout;
 
 import com.vaadin.icons.VaadinIcons;
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.BrowserFrame;
 import com.vaadin.ui.Component;
@@ -34,6 +35,8 @@ public abstract class DemoLayout extends EasyAppLayout {
 	private static final long serialVersionUID = 1L;
 	
 	private static Logger logger = Logger.getLogger(DemoLayout.class);
+	
+	private TargetEasyAppLayout targetEasyAppLayout;
 
 
 	public DemoLayout() {
@@ -44,9 +47,9 @@ public abstract class DemoLayout extends EasyAppLayout {
 		ViewWithToolBar viewWithToolBar = new ViewWithToolBar();
 		viewWithToolBar.setActionContainerStlyle("Container");
 		
-		TargetEasyAppLayout targetEasyAppLayout = new TargetEasyAppLayout(getComponent(), buildTargetActionContainer());
+		targetEasyAppLayout = new TargetEasyAppLayout(getComponent(), buildTargetActionContainer());
 		viewWithToolBar.buildComponents(targetEasyAppLayout);
-		
+		targetEasyAppLayout.refreshClickable();
 		
 
 		tabSheet.addTab(viewWithToolBar, "Component", VaadinIcons.ABACUS);
@@ -66,6 +69,15 @@ public abstract class DemoLayout extends EasyAppLayout {
 		addComponent(tabSheet);
 	}
 	
+	
+	
+	
+	@Override
+	public void refreshClickable() {
+		targetEasyAppLayout.refreshClickable();
+	}
+
+
 	private AceEditor getSourceEditor() {
 		List<String> splitList = Arrays.asList(this.getClass().toString().split("\\."));
 		InputStream in = getClass().getClassLoader().getResourceAsStream(SRC_FOLDER + splitList.get(splitList.size() - 1) + JAVA_EXT);
@@ -127,14 +139,19 @@ public abstract class DemoLayout extends EasyAppLayout {
 			this.targetActionContainer = targetActionContainer;
 			setSizeFull();
 			addComponent(targetComponent);
-			// TODO Auto-generated constructor stub
 		}
 
 		@Override
 		public ActionContainer buildActionContainer() {
-			// TODO Auto-generated method stub
 			return targetActionContainer;
 		}
+
+		@Override
+		public void enterInView(ViewChangeEvent event) {
+		
+		}
+		
+		
 	}
 
 }

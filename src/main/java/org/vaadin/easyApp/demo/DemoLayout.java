@@ -117,15 +117,6 @@ public abstract class DemoLayout extends EasyAppLayout {
 		return null;
 	}
 
-	/**
-	 * Define the source code url 
-	 * @return null if not set
-	 */
-	public String getSourceUrl() {
-		return null;
-	}
-
-
 	public abstract Component getComponent();
 	
 	public abstract ActionContainer buildTargetActionContainer();

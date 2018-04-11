@@ -34,11 +34,7 @@ public class ViewOne extends DemoLayout {
 		return "https://vaadin.com/forum/thread/214731";
 	}
 
-	@Override
-	public String getSourceUrl() {
-		return "https://github.com/miraclefoxx/bigdecimal-math/blob/master/src/main/java/io/github/miraclefoxx/math/Bernoulli.java";
-	}
-	
+
 	public ActionContainer buildTargetActionContainer() {
 		ActionContainerBuilder builder = new ActionContainerBuilder(null)
 				.addButton("B1", "ABACUS", null,  this::b1Clickable			

@@ -20,7 +20,7 @@ public class ViewFive extends EasyAppLayout  {
 		addComponent(new TextField(""));
 	}
 
-	public void enter(ViewChangeEvent event) {
+	public void enterInView(ViewChangeEvent event) {
 		Notification.show("Entering view 1");
 	}
 

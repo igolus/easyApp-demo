@@ -169,10 +169,10 @@
     	background-color: $containerBackGround;
     	margin: none;
     	.v-button {
-    		@include buttonForContainer($buttonContainergroundColor, $buttonContainerContentColor)
+    		//@include buttonForContainer($buttonContainergroundColor, $buttonContainerContentColor)
     	}
     	.v-button:hover  {
-    		@include buttonForContainer($buttonHoverContainergroundColor, $buttonHoverContainerContentColor)
+    		//@include buttonForContainer($buttonHoverContainergroundColor, $buttonHoverContainerContentColor)
     	}
     }
  	

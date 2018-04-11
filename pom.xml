@@ -79,6 +79,16 @@
 			<artifactId>aceeditor</artifactId>
 			<version>0.8.15</version>
 		</dependency>
+		<dependency>
+			<groupId>com.byteowls</groupId>
+			<artifactId>vaadin-chartjs</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.vaadin.thomas</groupId>
+			<artifactId>timefield</artifactId>
+			<version>3.0.0-v8comp</version>
+		</dependency>
 	</dependencies>
 
 	<build>

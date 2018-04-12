@@ -36,13 +36,14 @@ public class ViewOne extends DemoLayout {
 
 
 	public ActionContainer buildTargetActionContainer() {
-		ActionContainerBuilder builder = new ActionContainerBuilder(null)
-				.addButton("B1", "ABACUS", null,  this::b1Clickable			
-					, this::b1Clicked, Position.LEFT, null)
-				.addButton("B2", "ABACUS", null,  this::b2Clickable			
-					, this::b2Clicked, Position.LEFT, null);
-
-		return builder.build();
+//		ActionContainerBuilder builder = new ActionContainerBuilder(null)
+//				.addButton("B1", "ABACUS", null,  this::b1Clickable			
+//					, this::b1Clicked, Position.LEFT, null)
+//				.addButton("B2", "ABACUS", null,  this::b2Clickable			
+//					, this::b2Clicked, Position.LEFT, null);
+//
+//		return builder.build();
+		return null;
 	}
 
 	

@@ -15073,6 +15073,10 @@ div.v-layout.v-horizontal.v-widget {
 	background: white;
 }
 
+.mytheme .v-spacing {
+	height: 0px;
+}
+
 .mytheme .v-label {
 	background: black;
 	color: white;
@@ -15082,7 +15086,7 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-button-TopBar {
-	background-color: #FFFFFF;
+	background-color: $backroundNavigatorColor;
 	background-image: none;
 }
 
@@ -15100,11 +15104,62 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-gridlayout-TopBar .v-button {
-	background-color: #FFFFFF;
+	background-color: #5F6C72;
+	margin: 0px;
+	text-align: center;
+	border: none;
+	border-radius: 0px;
+	color: #FFFFFF;
+	border-radius: 0px;
+	background-image: none;
+	display: block;
+	outline: none;
+	box-shadow: none;
+	top: 0px;
+	-webkit-box-shadow: none;
 }
 
-.mytheme .v-spacing {
-	height: 0px;
+.mytheme .v-gridlayout-TopBar .v-button:hover {
+	background-color: #e3c8b9;
+	margin: 0px;
+	text-align: center;
+	border: none;
+	border-radius: 0px;
+	color: #FFFFFF;
+	border-radius: 0px;
+	background-image: none;
+	display: block;
+	outline: none;
+	box-shadow: none;
+	top: 0px;
+	-webkit-box-shadow: none;
+}
+
+.mytheme .v-gridlayout-TopBar .v-label {
+	text-shadow: 2px 2px #aaaaaa;
+	background: #5F6C72;
+	font-size: 20pt;
+	font-weight: bold;
+	font-family: "Impact";
+}
+
+.mytheme .v-label-Contextual {
+	background: #5F6C72;
+	font-size: 15pt;
+	font-weight: bold;
+	font-family: "Impact";
+}
+
+.mytheme .v-gridlayout-Container {
+	margin: 0px 0px 5px 0px;
+	background-color: #FFFFFF;
+	margin: none;
+}
+
+.mytheme .v-button:focus:after {
+	border: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 
 .mytheme .v-button-Nav {
@@ -15121,6 +15176,7 @@ div.v-layout.v-horizontal.v-widget {
 	outline: none;
 	box-shadow: none;
 	top: 0px;
+	-webkit-box-shadow: none;
 }
 
 .mytheme .v-button-Selected {
@@ -15133,15 +15189,16 @@ div.v-layout.v-horizontal.v-widget {
 	color: #000000;
 	border-radius: 0px;
 	background-image: none;
-	top: 0px;
 	display: block;
 	outline: none;
 	box-shadow: none;
 	top: 0px;
+	-webkit-box-shadow: none;
 }
 
-.mytheme v-button:focus::after {
-	border: none;
+.mytheme .v-button-link:after {
+	content: none;
+	box-shadow: none;
 }
 
 .mytheme .v-button-Nav:hover {
@@ -15158,6 +15215,7 @@ div.v-layout.v-horizontal.v-widget {
 	outline: none;
 	box-shadow: none;
 	top: 0px;
+	-webkit-box-shadow: none;
 }
 
 .mytheme .v-accordion-item-content {
@@ -15166,7 +15224,7 @@ div.v-layout.v-horizontal.v-widget {
 	outline: none;
 }
 
-.mytheme .v-accordion-item {
+.mytheme .v-accordion-Nav .v-accordion-item {
 	background-color: #4D74C0;
 	display: block;
 	outline: none;
@@ -15177,13 +15235,13 @@ div.v-layout.v-horizontal.v-widget {
 	box-shadow: none;
 }
 
-.mytheme .v-accordion-item-caption {
+.mytheme .v-accordion-Nav .v-accordion-item .v-accordion-item-caption {
 	box-shadow: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
 
-.mytheme .v-accordion-item-caption .v-caption {
+.mytheme .v-accordion-Nav .v-accordion-item .v-accordion-item-caption .v-caption {
 	box-shadow: none;
 	border: none;
 	color: #FEFFFF;

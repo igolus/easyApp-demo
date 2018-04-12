@@ -91,7 +91,6 @@ public class ChartJS extends DemoLayout {
 		chart.setJsLoggingEnabled(true);
 		VerticalLayout layout = new VerticalLayout();
 		layout.setSizeFull();
-		//chart.setSizeFull();
 		chart.setWidth("800px");
 		chart.setHeight("600px");
 		layout.addComponent(chart);

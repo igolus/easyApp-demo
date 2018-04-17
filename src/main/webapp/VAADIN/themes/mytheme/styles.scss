@@ -112,14 +112,6 @@
 		height: 0px;
 	}
   
-  /* All labels have white text on black background */
-  .v-label {
-    background: black;
-    color: white;
-    font-size: 24pt;
-    line-height: 24pt;
-    padding: 5px;
-  }
   
     .v-button-TopBar {
     	background-color: $backroundNavigatorColor;
@@ -148,6 +140,7 @@
     		text-shadow: 2px 2px #aaaaaa;
     		background: $panelTopBarBackgroundColor;
     		font-size: 20pt;
+    		color: white;
     		font-weight: bold;
     		font-family: "Impact";
     	}

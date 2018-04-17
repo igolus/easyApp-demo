@@ -83,7 +83,7 @@ public class GoogleMaps extends DemoLayout {
 		//add the text field
 		builder.addComponent(searchTextField, Position.RIGHT, InsertPosition.BEFORE);
 		Label label = new Label("Search somewhere: ");
-		
+		builder.addComponent(label, Position.RIGHT, InsertPosition.BEFORE);
 		return builder.build();
 	}
 	

@@ -48,11 +48,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.vaadin</groupId>
+			<groupId>com.jenetware</groupId>
 			<artifactId>easyApp</artifactId>
-			<version>0.2-SNAPSHOP</version>
-			<scope>system</scope>
-    		<systemPath>${project.basedir}/lib/easyApp-0.2-SNAPSHOP.jar</systemPath>
+			<version>0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -147,7 +145,7 @@
 							<targetPath>WEB-INF/classes/src</targetPath>
 						</resource>
 					</webResources>
-	                <outputDirectory>.</outputDirectory>
+					<outputDirectory>.</outputDirectory>
 				</configuration>
 
 

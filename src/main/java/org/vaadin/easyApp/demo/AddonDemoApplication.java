@@ -44,7 +44,9 @@ public class AddonDemoApplication extends UI {
 		image.setWidth(40, Unit.PIXELS);
 		image.setHeight(40, Unit.PIXELS);
 		
+		//use the package where the views are defined
 		EasyAppBuilder easyAppBuilder = new EasyAppBuilder(Collections.singletonList("org.vaadin.easyApp.demo.view"));
+		
 		easyAppBuilder.withNavigationIcon(image);
 		easyAppBuilder.withTopBarIcon(image);
 		easyAppBuilder.withRessourceBundle(null);
@@ -61,10 +63,8 @@ public class AddonDemoApplication extends UI {
 		easyAppBuilder.withMenuCollapsable();
 		
 		ActionContainerBuilder actionContainerBuilder = new ActionContainerBuilder(null);
-				//.addButton("Test", VaadinIcons.MINUS, null , this::always, this::test);
 		actionContainerBuilder.addImageIcon(image,  Position.LEFT, null);
 		actionContainerBuilder.addSearch(this::searchTriggered, Position.RIGHT, null);
-		
 		
 		easyAppBuilder.withActionContainer(actionContainerBuilder.build());
 	

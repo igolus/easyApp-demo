@@ -28,6 +28,7 @@ import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 
+//MapRoot.class is the accordion container where this component should be placed
 @ContentView(sortingOrder=1, viewName = "GoogleMaps", icon = "MAP_MARKER", rootViewParent = MapRoot.class)
 @SuppressWarnings("serial")
 public class GoogleMaps extends DemoLayout {
@@ -35,12 +36,10 @@ public class GoogleMaps extends DemoLayout {
 	private static final String GOOGLE_KEY = "AIzaSyCWrgCsop8-1HEYJdp5QVZl6cR7ShzfMDc";
 	private GoogleMap googleMap;
 	private TextField searchTextField;
-;
 	private static Logger logger = Logger.getLogger(GoogleMaps.class);
 	
 	public GoogleMaps() {
 		super();
-		//VaadinIcons.FILE_CODE
 	}
 	
 	@Override
@@ -57,12 +56,12 @@ public class GoogleMaps extends DemoLayout {
 		googleMap.setMinZoom(4);
 		googleMap.setMaxZoom(16);
 		googleMap.setSizeFull();
-		//layout.setSizeFull();
 		return googleMap;
 	}
 
 
 	public void enterInView(ViewChangeEvent event) {
+		//when entering in the view
 	}
 
 
@@ -74,12 +73,12 @@ public class GoogleMaps extends DemoLayout {
 
 	public ActionContainer buildTargetActionContainer() {
 		//This is how we can add interactive components in the view
-		
 		//Add a button targeting search method
 		ActionContainerBuilder builder = new ActionContainerBuilder(null)
 				.addButton(VaadinIcons.SEARCH, this::search, Position.RIGHT);
 		
 		searchTextField = new TextField();
+		
 		//add the text field
 		builder.addComponent(searchTextField, Position.RIGHT, InsertPosition.BEFORE);
 		Label label = new Label("Search somewhere: ");

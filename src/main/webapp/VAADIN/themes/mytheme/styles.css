@@ -15077,14 +15077,6 @@ div.v-layout.v-horizontal.v-widget {
 	height: 0px;
 }
 
-.mytheme .v-label {
-	background: black;
-	color: white;
-	font-size: 24pt;
-	line-height: 24pt;
-	padding: 5px;
-}
-
 .mytheme .v-button-TopBar {
 	background-color: $backroundNavigatorColor;
 	background-image: none;
@@ -15139,6 +15131,7 @@ div.v-layout.v-horizontal.v-widget {
 	text-shadow: 2px 2px #aaaaaa;
 	background: #5F6C72;
 	font-size: 20pt;
+	color: white;
 	font-weight: bold;
 	font-family: "Impact";
 }

@@ -127,7 +127,7 @@ public class GoogleMaps extends DemoLayout {
 			double limitSWlng =obj.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("bounds")
 					.getJSONObject("southwest").getDouble("lng");
 			
-			googleMap.setVisibleAreaBoundLimits(new LatLon(limitNElat, limitNElng), new LatLon(limitSWlat, limitSWlng));
+			googleMap.fitToBounds(new LatLon(limitNElat, limitNElng), new LatLon(limitSWlat, limitSWlng));
 		} catch (Exception e) {
 			logger.error("Unable to get location", e);
 		} 		

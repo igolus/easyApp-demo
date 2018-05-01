@@ -20,8 +20,16 @@ public class ComboBoxMultiselectSample extends DemoLayout {
 	
     public class NamedObject {
 
-		public NamedObject(long l, String string) {
-			// TODO Auto-generated constructor stub
+		private long rank;
+		private String name;
+
+		public NamedObject(long rank, String name) {
+			this.rank = rank;
+			this.name = name;
+		}
+		
+		public String toString() {
+			return name;
 		}
 
 	}

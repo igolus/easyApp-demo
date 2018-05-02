@@ -109,6 +109,11 @@
 			<artifactId>groovy-all</artifactId>
 			<version>2.4.4</version>
 		</dependency>
+		<dependency>
+			<groupId>org.vaadin.addons</groupId>
+			<artifactId>vaadin-simple-mde</artifactId>
+			<version>1.0.4</version>
+		</dependency>
 	</dependencies>
 
 	<build>
